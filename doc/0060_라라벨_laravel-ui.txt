@@ -139,3 +139,14 @@ http://sample.laravel_sample.com/register
 => sample\resources\views\auth 속의 모든 뷰 파일 수정
 {{-- @extends('layouts.app') --}}
 @extends('layouts.default')
+
+
+*. 주의
+laravel-ui 쪽은 부트스트랩 5.x
+현재 샘플을 부트스트랩 4.x
+로 만들어져있다.
+원하는 layout 파일을 사용하라.
+
+*. 알림
+npm 처리는 한번만 하면 된다.
+서버에서 다시 할 필요가 없다!
