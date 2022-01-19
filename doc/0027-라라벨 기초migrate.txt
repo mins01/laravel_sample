@@ -1,0 +1,30 @@
+/******************************************
+* 0027-라라벨 기본migrate
+******************************************/
+
+*. 라라벨 기본 migrate 실행
+=> 동작시 자동으로 테이블이 생성됨.
+=> 테이블 migrations 에 작업 내역 기록 됨
+C:\work\laravel_sample\sample>php artisan migrate
+Migration table created successfully.
+Migrating: 2014_10_12_000000_create_users_table
+Migrated:  2014_10_12_000000_create_users_table (19.53ms)
+Migrating: 2014_10_12_100000_create_password_resets_table
+Migrated:  2014_10_12_100000_create_password_resets_table (12.54ms)
+Migrating: 2019_08_19_000000_create_failed_jobs_table
+Migrated:  2019_08_19_000000_create_failed_jobs_table (13.70ms)
+Migrating: 2019_12_14_000001_create_personal_access_tokens_table
+Migrated:  2019_12_14_000001_create_personal_access_tokens_table (19.57ms)
+
+
+*. 테이블 생성 확인 (user: laravel_sample)
+=> SQL> SHOW TABLES;
+Tables_in_laravel_sample  
+--------------------------
+failed_jobs               
+migrations                
+password_resets           
+personal_access_tokens    
+users                     
+
+

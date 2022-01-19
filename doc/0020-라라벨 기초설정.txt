@@ -1,0 +1,17 @@
+/******************************************
+* 0020-라라벨 기초설정
+******************************************/
+
+*. 라라벨 환경 설정 파일 확인
+=> .env 파일에서 필요 부분 수정 (.env 파일이 없을 경우 .env.example 를 복사해서 생성)
+=> !주의. .env 파일은 git에 올라가지 않는다. (다른곳에서 사용시 그 곳에서 맞춰 새로 만들거나, 따로 파일을 건내줘야 함!)
+APP_NAME=laravel_sample
+...
+APP_URL=http://sample.laravel_sample.com
+...
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=laravel_sample                   <--- 환경에 맞게 수정
+DB_USERNAME=laravel_sample                   <--- 환경에 맞게 수정
+DB_PASSWORD=laravel_sample                   <--- 환경에 맞게 수정

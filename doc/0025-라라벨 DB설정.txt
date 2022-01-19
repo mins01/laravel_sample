@@ -1,0 +1,16 @@
+/******************************************
+* 0025-라라벨 DB설정
+******************************************/
+
+*. 데이터베이스 생성 및 유저 추가
+(DBMS의 루트 궈한 실행)
+SQL> 
+# 데이터베이스 생성
+CREATE DATABASE `laravel_sample` CHARACTER SET utf8mb4; 
+# 유저 추가
+CREATE USER 'laravel_sample'@'127.0.0.1' IDENTIFIED VIA mysql_native_password USING PASSWORD('laravel_sample'); 
+# 권한 추가
+GRANT ALTER, ALTER ROUTINE, CREATE, CREATE ROUTINE, CREATE TEMPORARY TABLES, CREATE VIEW, DELETE, DROP, EVENT, EXECUTE, INDEX, INSERT, LOCK TABLES, REFERENCES, SELECT, SHOW VIEW, TRIGGER, UPDATE ON `laravel_sample`.* TO 'laravel_sample'@'127.0.0.1'; 
+FLUSH PRIVILEGES; 
+
+#EOF;
