@@ -9,7 +9,7 @@ https://velog.io/@munbeom/Laravel
 a. composer require laravel/ui
 b. php artisan ui bootstrap --auth
 c. npm install
-d. npm run dev
+d. npm run dev         <-- 이걸 두번 해야한다.
 
 *. npm 설치.
 https://www.npmjs.com/
