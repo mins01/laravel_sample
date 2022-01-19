@@ -1,0 +1,47 @@
+/******************************************
+* 0030_라라벨_MVC샘플
+******************************************/
+
+*. 네이밍
+테이블명 : test_rows            (복수형. 라라벨 규칙. 꼭 따를 필요는 없다.)
+모델명 : TestRow                (대문자로 시작, 단수형)
+컨트롤러명 : TestRowController  (Controller 가 뒤에 붙는다. 라라벨 규칙. 꼭 따를 필요는 없다.)
+
+*. 마이그레이션 생성
+C:\work\laravel_sample\sample>php artisan make:migration create_test_rows
+Created Migration: 2022_01_19_014101_create_test_rows
+=> 
+sample\database\migrations\2022_01_19_014101_create_test_rows.php 파일 참고
+create가 붙어있어 기본 테이블 청사진이 포함되어있다. create가 없을 경우 빈 메소드만 생성됨!
+알맞게 수정 필요
+
+
+*. 모델 생성
+C:\work\laravel_sample\sample>php artisan make:model TestRow
+Model created successfully.
+=>
+sample\app\Models\TestRow.php 파일 참고
+SoftDeletes 를 사용하기 위한 구문 추가.
+설정 도움을 위한 주석 추가.
+
+
+*. 컨트롤러 생성
+C:\work\laravel_sample\sample>php artisan make:controller TestRowController -m TestRow -r
+Controller created successfully.
+=> 옵션 설명
+make:controller TestRowController  : 컨트롤러 이름 (필수)
+-m TestRow : 기본으로 사용하는 모델 이름 (기본으로 use 및 파라메터에 추가)
+-r : 리소스 타입 지정 (CRUD 용 메소드가 기본 추가됨)
+=> 
+sample\app\Http\Controllers\TestRowController.php 파일 참고
+CRUD 용 메소드가 추가되어 생성됨.
+=> 
+CRUD 메소드 목록
+index : 목록 보기
+create : 생성 폼
+store : insert 액션 (create 와 짝을 이룸)
+show : 상세 보기(읽기)
+edit : 수정 폼
+update : update 액션(edit 와 짝을 이룸)
+destroy : delete 액션
+
