@@ -132,3 +132,9 @@ Command Line: C:\work\laravel_sample\sample\node_modules\node-notifier\vendor\sn
 *. 동작 확인
 http://sample.laravel_sample.com/login
 http://sample.laravel_sample.com/register
+
+
+*. 뷰 수정
+=> sample\resources\views\auth 속의 모든 뷰 파일 수정
+{{-- @extends('layouts.app') --}}
+@extends('layouts.default')
