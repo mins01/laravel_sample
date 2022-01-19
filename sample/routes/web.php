@@ -16,3 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::get('testRow/page', [App\Http\Controllers\TestRowController::class,'page'])->name('testRow.page');
+Route::resource('testRow', App\Http\Controllers\TestRowController::class);  

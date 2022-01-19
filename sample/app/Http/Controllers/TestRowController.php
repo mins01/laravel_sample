@@ -82,4 +82,15 @@ class TestRowController extends Controller
     {
         //
     }
+    /**
+     * 테스트용으로 추가한 test 메소드
+     * 
+     * @return \Illuminate\Http\Response
+     */
+    public function page()
+    {
+        // return response("TEST PAGE");
+        return "TEST PAGE";
+    }
+    
 }

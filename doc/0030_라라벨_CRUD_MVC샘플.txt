@@ -45,3 +45,27 @@ edit : 수정 폼
 update : update 액션(edit 와 짝을 이룸)
 destroy : delete 액션
 
+*. 라우팅 추가
+=> sample\routes\web.php 파일 수정
+Route::get('testRow/page', [App\Http\Controllers\TestRowController::class,'page'])->name('testRow.page');
+Route::resource('testRow', App\Http\Controllers\TestRowController::class);  
+
+*. 컨트롤러에 page 메소드 추가
+=>
+    /**
+     * 테스트용으로 추가한 test 메소드
+     * 
+     * @return \Illuminate\Http\Response
+     */
+    public function page()
+    {
+        // return response("TEST PAGE");
+        return "TEST PAGE";
+    }
+//EOF;
+
+*. 동작 확인
+http://sample.laravel_sample.com/testRow/page
+=> 
+"TEST PAGE"
+라고 출력
