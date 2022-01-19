@@ -1,0 +1,588 @@
+/******************************************
+* 라라벨설치
+******************************************/
+*. 작성날짜 : 2022-01-19 쯤
+*. 작성자 : 공대여자
+*. 작성자 홈피 : http://mins01.com
+*. 라이센스 : "공대여자는 이쁘다" + MIT
+
+*. 라라벨 설치 문서
+라라벨        -  https://laravel.com/
+라라벨 코리아  -  https://laravel.kr/docs/8.x
+
+*. Laravel 8 기준으로 작업!
+
+*. 콤포저 설치 (WAMP 기준)
+https://getcomposer.org/doc/00-intro.md
+Composer-Setup.exe 를 사용해서 설치
+
+C:\tmp>composer -V
+Composer version 2.2.4 2022-01-08 12:30:42
+
+*. 작업폴더 위치 (알맞게 바꾸시오)
+C:\work\laravel_sample
+C:\work\laravel_sample\sample          // 라라벨설치위치
+C:\work\laravel_sample\sample\public   // 웹 DocumentRoot
+C:\work\laravel_sample\doc      // 작업문서 위치
+
+*. 로컬 테스트용 도메인
+sample.laravel_sample.com
+
+*. AMP
+window용 xampp 3.3.0 기준
+PHP v7.4.27
+
+/* =============================================== 
+* 콤포저로 라라벨 설치
+================================================== */
+
+
+*. 라라벨 인스톨러 설치
+C:\work\laravel_sample>composer global require laravel/installer   
+Changed current directory to C:/Users/*****/AppData/Roaming/Composer
+Using version ^4.2 for laravel/installer
+./composer.json has been created
+Running composer update laravel/installer
+Loading composer repositories with package information
+Updating dependencies
+Lock file operations: 13 installs, 0 updates, 0 removals
+  - Locking laravel/installer (v4.2.9)
+  - Locking psr/container (1.1.2)
+  - Locking symfony/console (v5.4.2)
+  - Locking symfony/deprecation-contracts (v2.5.0)
+  - Locking symfony/polyfill-ctype (v1.24.0)
+  - Locking symfony/polyfill-intl-grapheme (v1.24.0)
+  - Locking symfony/polyfill-intl-normalizer (v1.24.0)
+  - Locking symfony/polyfill-mbstring (v1.24.0)
+  - Locking symfony/polyfill-php73 (v1.24.0)
+  - Locking symfony/polyfill-php80 (v1.24.0)
+  - Locking symfony/process (v5.4.2)
+  - Locking symfony/service-contracts (v2.5.0)
+  - Locking symfony/string (v5.4.2)
+Writing lock file
+Installing dependencies from lock file (including require-dev)
+Package operations: 13 installs, 0 updates, 0 removals
+  - Downloading symfony/polyfill-php80 (v1.24.0)
+  - Downloading symfony/process (v5.4.2)
+  - Downloading symfony/polyfill-mbstring (v1.24.0)
+  - Downloading symfony/polyfill-intl-grapheme (v1.24.0)
+  - Downloading symfony/polyfill-ctype (v1.24.0)
+  - Downloading symfony/string (v5.4.2)
+  - Downloading symfony/deprecation-contracts (v2.5.0)
+  - Downloading psr/container (1.1.2)
+  - Downloading symfony/service-contracts (v2.5.0)
+  - Downloading symfony/polyfill-php73 (v1.24.0)
+  - Downloading symfony/console (v5.4.2)
+  - Downloading laravel/installer (v4.2.9)
+  - Installing symfony/polyfill-php80 (v1.24.0): Extracting archive
+  - Installing symfony/process (v5.4.2): Extracting archive
+  - Installing symfony/polyfill-mbstring (v1.24.0): Extracting archive
+  - Installing symfony/polyfill-intl-normalizer (v1.24.0): Extracting archive
+  - Installing symfony/polyfill-intl-grapheme (v1.24.0): Extracting archive
+  - Installing symfony/polyfill-ctype (v1.24.0): Extracting archive
+  - Installing symfony/string (v5.4.2): Extracting archive
+  - Installing symfony/deprecation-contracts (v2.5.0): Extracting archive
+  - Installing psr/container (1.1.2): Extracting archive
+  - Installing symfony/service-contracts (v2.5.0): Extracting archive
+  - Installing symfony/polyfill-php73 (v1.24.0): Extracting archive
+  - Installing symfony/console (v5.4.2): Extracting archive
+  - Installing laravel/installer (v4.2.9): Extracting archive
+6 package suggestions were added by new dependencies, use `composer suggest` to see details.
+Generating autoload files
+11 packages you are using are looking for funding.
+Use the `composer fund` command to find out more!
+
+*. 라라벨 인스톨러 설치 확인
+C:\work\laravel_sample>laravel
+Laravel Installer 4.2.9
+
+Usage:
+  command [options] [arguments]
+
+Options:
+  -h, --help            Display help for the given command. When no command is given display help for the list command
+  -q, --quiet           Do not output any message
+  -V, --version         Display this application version
+      --ansi|--no-ansi  Force (or disable --no-ansi) ANSI output
+  -n, --no-interaction  Do not ask any interactive question
+  -v|vv|vvv, --verbose  Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug
+
+Available commands:
+  completion  Dump the shell completion script
+  help        Display help for a command
+  list        List commands
+  new         Create a new Laravel application
+
+  *. 라라벨 앱 기본 설치
+  !. 경로 주의 (이미 폴더가 있으면 안됨)
+C:\work\laravel_sample>laravel new sample
+=> sample 이란 서브 폴더가 생기고 그 안에 필요 파일이 생성된다.
+
+ _                               _
+| |                             | |
+| |     __ _ _ __ __ ___   _____| |
+| |    / _` | '__/ _` \ \ / / _ \ |
+| |___| (_| | | | (_| |\ V /  __/ |
+|______\__,_|_|  \__,_| \_/ \___|_|
+
+    Creating a "laravel/laravel" project at "./sample"
+    Installing laravel/laravel (v8.6.10)
+  - Downloading laravel/laravel (v8.6.10)
+      - Installing laravel/laravel (v8.6.10): Extracting archive
+    Created project in C:\work\laravel_sample\sample
+> @php -r "file_exists('.env') || copy('.env.example', '.env');"
+    Loading composer repositories with package information
+    Updating dependencies
+Lock file operations: 110 installs, 0 updates, 0 removals
+  - Locking asm89/stack-cors (v2.0.5)
+  - Locking brick/math (0.9.3)
+  - Locking dflydev/dot-access-data (v3.0.1)
+  - Locking doctrine/inflector (2.0.4)
+  - Locking doctrine/instantiator (1.4.0)
+  - Locking doctrine/lexer (1.2.2)
+  - Locking dragonmantank/cron-expression (v3.3.0)
+  - Locking egulias/email-validator (2.1.25)
+  - Locking facade/flare-client-php (1.9.1)
+  - Locking facade/ignition (2.17.4)
+  - Locking facade/ignition-contracts (1.0.2)
+  - Locking fakerphp/faker (v1.17.0)
+  - Locking filp/whoops (2.14.5)
+  - Locking fruitcake/laravel-cors (v2.0.5)
+  - Locking graham-campbell/result-type (v1.0.4)
+  - Locking guzzlehttp/guzzle (7.4.1)
+  - Locking guzzlehttp/promises (1.5.1)
+  - Locking guzzlehttp/psr7 (2.1.0)
+  - Locking hamcrest/hamcrest-php (v2.0.1)
+  - Locking laravel/framework (v8.79.0)
+  - Locking laravel/sail (v1.12.12)
+  - Locking laravel/sanctum (v2.14.0)
+  - Locking laravel/serializable-closure (v1.0.5)
+  - Locking laravel/tinker (v2.7.0)
+  - Locking league/commonmark (2.1.1)
+  - Locking league/config (v1.1.1)
+  - Locking league/flysystem (1.1.9)
+  - Locking league/mime-type-detection (1.9.0)
+  - Locking mockery/mockery (1.4.4)
+  - Locking monolog/monolog (2.3.5)
+  - Locking myclabs/deep-copy (1.10.2)
+  - Locking nesbot/carbon (2.55.2)
+  - Locking nette/schema (v1.2.2)
+  - Locking nette/utils (v3.2.6)
+  - Locking nikic/php-parser (v4.13.2)
+  - Locking nunomaduro/collision (v5.11.0)
+  - Locking opis/closure (3.6.2)
+  - Locking phar-io/manifest (2.0.3)
+  - Locking phar-io/version (3.1.0)
+  - Locking phpdocumentor/reflection-common (2.2.0)
+  - Locking phpdocumentor/reflection-docblock (5.3.0)
+  - Locking phpdocumentor/type-resolver (1.6.0)
+  - Locking phpoption/phpoption (1.8.1)
+  - Locking phpspec/prophecy (v1.15.0)
+  - Locking phpunit/php-code-coverage (9.2.10)
+  - Locking phpunit/php-file-iterator (3.0.6)
+  - Locking phpunit/php-invoker (3.1.1)
+  - Locking phpunit/php-text-template (2.0.4)
+  - Locking phpunit/php-timer (5.0.3)
+  - Locking phpunit/phpunit (9.5.11)
+  - Locking psr/container (1.1.2)
+  - Locking psr/event-dispatcher (1.0.0)
+  - Locking psr/http-client (1.0.1)
+  - Locking psr/http-factory (1.0.1)
+  - Locking psr/http-message (1.0.1)
+  - Locking psr/log (1.1.4)
+  - Locking psr/simple-cache (1.0.1)
+  - Locking psy/psysh (v0.11.1)
+  - Locking ralouphie/getallheaders (3.0.3)
+  - Locking ramsey/collection (1.2.2)
+  - Locking ramsey/uuid (4.2.3)
+  - Locking sebastian/cli-parser (1.0.1)
+  - Locking sebastian/code-unit (1.0.8)
+  - Locking sebastian/code-unit-reverse-lookup (2.0.3)
+  - Locking sebastian/comparator (4.0.6)
+  - Locking sebastian/complexity (2.0.2)
+  - Locking sebastian/diff (4.0.4)
+  - Locking sebastian/environment (5.1.3)
+  - Locking sebastian/exporter (4.0.4)
+  - Locking sebastian/global-state (5.0.3)
+  - Locking sebastian/lines-of-code (1.0.3)
+  - Locking sebastian/object-enumerator (4.0.4)
+  - Locking sebastian/object-reflector (2.0.4)
+  - Locking sebastian/recursion-context (4.0.4)
+  - Locking sebastian/resource-operations (3.0.3)
+  - Locking sebastian/type (2.3.4)
+  - Locking sebastian/version (3.0.2)
+  - Locking swiftmailer/swiftmailer (v6.3.0)
+  - Locking symfony/console (v5.4.2)
+  - Locking symfony/css-selector (v5.4.2)
+  - Locking symfony/deprecation-contracts (v2.5.0)
+  - Locking symfony/error-handler (v5.4.2)
+  - Locking symfony/event-dispatcher (v5.4.0)
+  - Locking symfony/event-dispatcher-contracts (v2.5.0)
+  - Locking symfony/finder (v5.4.2)
+  - Locking symfony/http-foundation (v5.4.2)
+  - Locking symfony/http-kernel (v5.4.2)
+  - Locking symfony/mime (v5.4.2)
+  - Locking symfony/polyfill-ctype (v1.24.0)
+  - Locking symfony/polyfill-iconv (v1.24.0)
+  - Locking symfony/polyfill-intl-grapheme (v1.24.0)
+  - Locking symfony/polyfill-intl-idn (v1.24.0)
+  - Locking symfony/polyfill-intl-normalizer (v1.24.0)
+  - Locking symfony/polyfill-mbstring (v1.24.0)
+  - Locking symfony/polyfill-php72 (v1.24.0)
+  - Locking symfony/polyfill-php73 (v1.24.0)
+  - Locking symfony/polyfill-php80 (v1.24.0)
+  - Locking symfony/polyfill-php81 (v1.24.0)
+  - Locking symfony/process (v5.4.2)
+  - Locking symfony/routing (v5.4.0)
+  - Locking symfony/service-contracts (v2.5.0)
+  - Locking symfony/string (v5.4.2)
+  - Locking symfony/translation (v5.4.2)
+  - Locking symfony/translation-contracts (v2.5.0)
+  - Locking symfony/var-dumper (v5.4.2)
+  - Locking theseer/tokenizer (1.2.1)
+  - Locking tijsverkoyen/css-to-inline-styles (2.2.4)
+  - Locking vlucas/phpdotenv (v5.4.1)
+  - Locking voku/portable-ascii (1.5.6)
+  - Locking webmozart/assert (1.10.0)
+Writing lock file
+Installing dependencies from lock file (including require-dev)
+Package operations: 110 installs, 0 updates, 0 removals
+  - Downloading doctrine/inflector (2.0.4)
+  - Downloading doctrine/lexer (1.2.2)
+  - Downloading dragonmantank/cron-expression (v3.3.0)
+  - Downloading symfony/var-dumper (v5.4.2)
+  - Downloading monolog/monolog (2.3.5)
+  - Downloading phpoption/phpoption (1.8.1)
+  - Downloading graham-campbell/result-type (v1.0.4)
+  - Downloading vlucas/phpdotenv (v5.4.1)
+  - Downloading symfony/css-selector (v5.4.2)
+  - Downloading tijsverkoyen/css-to-inline-styles (2.2.4)
+  - Downloading symfony/routing (v5.4.0)
+  - Downloading symfony/polyfill-intl-idn (v1.24.0)
+  - Downloading symfony/mime (v5.4.2)
+  - Downloading symfony/http-foundation (v5.4.2)
+  - Downloading symfony/event-dispatcher-contracts (v2.5.0)
+  - Downloading symfony/event-dispatcher (v5.4.0)
+  - Downloading symfony/error-handler (v5.4.2)
+  - Downloading symfony/http-kernel (v5.4.2)
+  - Downloading symfony/finder (v5.4.2)
+  - Downloading symfony/polyfill-iconv (v1.24.0)
+      - Downloading swiftmailer/swiftmailer (v6.3.0)
+      - Downloading symfony/polyfill-php81 (v1.24.0)
+  - Downloading ramsey/collection (1.2.2)
+  - Downloading brick/math (0.9.3)
+  - Downloading ramsey/uuid (4.2.3)
+  - Downloading symfony/translation-contracts (v2.5.0)
+  - Downloading symfony/translation (v5.4.2)
+  - Downloading nesbot/carbon (2.55.2)
+  - Downloading league/mime-type-detection (1.9.0)
+  - Downloading league/flysystem (1.1.9)
+  - Downloading nette/utils (v3.2.6)
+  - Downloading nette/schema (v1.2.2)
+  - Downloading dflydev/dot-access-data (v3.0.1)
+  - Downloading league/config (v1.1.1)
+  - Downloading league/commonmark (2.1.1)
+  - Downloading laravel/serializable-closure (v1.0.5)
+  - Downloading laravel/framework (v8.79.0)
+  - Downloading facade/flare-client-php (1.9.1)
+  - Downloading facade/ignition (2.17.4)
+  - Downloading fakerphp/faker (v1.17.0)
+  - Downloading asm89/stack-cors (v2.0.5)
+  - Downloading fruitcake/laravel-cors (v2.0.5)
+  - Downloading guzzlehttp/psr7 (2.1.0)
+  - Downloading guzzlehttp/promises (1.5.1)
+  - Downloading guzzlehttp/guzzle (7.4.1)
+  - Downloading laravel/sail (v1.12.12)
+  - Downloading laravel/sanctum (v2.14.0)
+  - Downloading nikic/php-parser (v4.13.2)
+  - Downloading psy/psysh (v0.11.1)
+  - Downloading laravel/tinker (v2.7.0)
+  - Downloading mockery/mockery (1.4.4)
+  - Downloading filp/whoops (2.14.5)
+  - Downloading nunomaduro/collision (v5.11.0)
+  - Downloading phpdocumentor/type-resolver (1.6.0)
+  - Downloading phpdocumentor/reflection-docblock (5.3.0)
+  - Downloading sebastian/exporter (4.0.4)
+  - Downloading phpunit/php-file-iterator (3.0.6)
+  - Downloading theseer/tokenizer (1.2.1)
+  - Downloading phpunit/php-code-coverage (9.2.10)
+  - Downloading phpspec/prophecy (v1.15.0)
+  - Downloading phar-io/manifest (2.0.3)
+  - Downloading phpunit/phpunit (9.5.11)
+  0/62 [>---------------------------]   0%
+  9/62 [====>-----------------------]  14%
+ 12/62 [=====>----------------------]  19%
+ 15/62 [======>---------------------]  24%
+ 18/62 [========>-------------------]  29%
+ 19/62 [========>-------------------]  30%
+ 21/62 [=========>------------------]  33%
+ 23/62 [==========>-----------------]  37%
+ 24/62 [==========>-----------------]  38%
+ 26/62 [===========>----------------]  41%
+ 28/62 [============>---------------]  45%
+ 30/62 [=============>--------------]  48%
+ 31/62 [==============>-------------]  50%
+ 33/62 [==============>-------------]  53%
+ 35/62 [===============>------------]  56%
+ 36/62 [================>-----------]  58%
+ 37/62 [================>-----------]  59%
+ 38/62 [=================>----------]  61%
+ 40/62 [==================>---------]  64%
+ 41/62 [==================>---------]  66%
+ 42/62 [==================>---------]  67%
+ 43/62 [===================>--------]  69%
+ 45/62 [====================>-------]  72%
+ 46/62 [====================>-------]  74%
+ 47/62 [=====================>------]  75%
+ 49/62 [======================>-----]  79%
+ 50/62 [======================>-----]  80%
+ 52/62 [=======================>----]  83%
+ 54/62 [========================>---]  87%
+ 55/62 [========================>---]  88%
+ 57/62 [=========================>--]  91%
+ 61/62 [===========================>]  98%
+ 62/62 [============================] 100%
+  - Installing doctrine/inflector (2.0.4): Extracting archive
+  - Installing doctrine/lexer (1.2.2): Extracting archive
+  - Installing symfony/polyfill-ctype (v1.24.0): Extracting archive
+  - Installing webmozart/assert (1.10.0): Extracting archive
+  - Installing dragonmantank/cron-expression (v3.3.0): Extracting archive
+  - Installing symfony/polyfill-php80 (v1.24.0): Extracting archive
+  - Installing symfony/polyfill-mbstring (v1.24.0): Extracting archive
+  - Installing symfony/var-dumper (v5.4.2): Extracting archive
+      - Installing symfony/polyfill-intl-normalizer (v1.24.0): Extracting archive
+  - Installing symfony/polyfill-intl-grapheme (v1.24.0): Extracting archive
+  - Installing symfony/string (v5.4.2): Extracting archive
+  - Installing symfony/deprecation-contracts (v2.5.0): Extracting archive
+  - Installing psr/container (1.1.2): Extracting archive
+  - Installing symfony/service-contracts (v2.5.0): Extracting archive
+  - Installing symfony/polyfill-php73 (v1.24.0): Extracting archive
+  - Installing symfony/console (v5.4.2): Extracting archive
+  - Installing psr/log (1.1.4): Extracting archive
+      - Installing monolog/monolog (2.3.5): Extracting archive
+  - Installing voku/portable-ascii (1.5.6): Extracting archive
+  - Installing phpoption/phpoption (1.8.1): Extracting archive
+  - Installing graham-campbell/result-type (v1.0.4): Extracting archive
+  - Installing vlucas/phpdotenv (v5.4.1): Extracting archive
+      - Installing symfony/css-selector (v5.4.2): Extracting archive
+  - Installing tijsverkoyen/css-to-inline-styles (2.2.4): Extracting archive
+  - Installing symfony/routing (v5.4.0): Extracting archive
+  - Installing symfony/process (v5.4.2): Extracting archive
+  - Installing symfony/polyfill-php72 (v1.24.0): Extracting archive
+  - Installing symfony/polyfill-intl-idn (v1.24.0): Extracting archive
+  - Installing symfony/mime (v5.4.2): Extracting archive
+  - Installing symfony/http-foundation (v5.4.2): Extracting archive
+      - Installing psr/event-dispatcher (1.0.0): Extracting archive
+  - Installing symfony/event-dispatcher-contracts (v2.5.0): Extracting archive
+  - Installing symfony/event-dispatcher (v5.4.0): Extracting archive
+  - Installing symfony/error-handler (v5.4.2): Extracting archive
+  - Installing symfony/http-kernel (v5.4.2): Extracting archive
+      - Installing symfony/finder (v5.4.2): Extracting archive
+  - Installing symfony/polyfill-iconv (v1.24.0): Extracting archive
+  - Installing egulias/email-validator (2.1.25): Extracting archive
+  - Installing swiftmailer/swiftmailer (v6.3.0): Extracting archive
+      - Installing symfony/polyfill-php81 (v1.24.0): Extracting archive
+  - Installing ramsey/collection (1.2.2): Extracting archive
+  - Installing brick/math (0.9.3): Extracting archive
+  - Installing ramsey/uuid (4.2.3): Extracting archive
+  - Installing psr/simple-cache (1.0.1): Extracting archive
+  - Installing opis/closure (3.6.2): Extracting archive
+  - Installing symfony/translation-contracts (v2.5.0): Extracting archive
+  - Installing symfony/translation (v5.4.2): Extracting archive
+      - Installing nesbot/carbon (2.55.2): Extracting archive
+      - Installing league/mime-type-detection (1.9.0): Extracting archive
+  - Installing league/flysystem (1.1.9): Extracting archive
+  - Installing nette/utils (v3.2.6): Extracting archive
+  - Installing nette/schema (v1.2.2): Extracting archive
+  - Installing dflydev/dot-access-data (v3.0.1): Extracting archive
+  - Installing league/config (v1.1.1): Extracting archive
+      - Installing league/commonmark (2.1.1): Extracting archive
+  - Installing laravel/serializable-closure (v1.0.5): Extracting archive
+  - Installing laravel/framework (v8.79.0): Extracting archive
+      - Installing facade/ignition-contracts (1.0.2): Extracting archive
+  - Installing facade/flare-client-php (1.9.1): Extracting archive
+  - Installing facade/ignition (2.17.4): Extracting archive
+      - Installing fakerphp/faker (v1.17.0): Extracting archive
+      - Installing asm89/stack-cors (v2.0.5): Extracting archive
+  - Installing fruitcake/laravel-cors (v2.0.5): Extracting archive
+  - Installing psr/http-message (1.0.1): Extracting archive
+  - Installing psr/http-client (1.0.1): Extracting archive
+  - Installing ralouphie/getallheaders (3.0.3): Extracting archive
+  - Installing psr/http-factory (1.0.1): Extracting archive
+  - Installing guzzlehttp/psr7 (2.1.0): Extracting archive
+  - Installing guzzlehttp/promises (1.5.1): Extracting archive
+  - Installing guzzlehttp/guzzle (7.4.1): Extracting archive
+      - Installing laravel/sail (v1.12.12): Extracting archive
+  - Installing laravel/sanctum (v2.14.0): Extracting archive
+  - Installing nikic/php-parser (v4.13.2): Extracting archive
+  - Installing psy/psysh (v0.11.1): Extracting archive
+      - Installing laravel/tinker (v2.7.0): Extracting archive
+  - Installing hamcrest/hamcrest-php (v2.0.1): Extracting archive
+  - Installing mockery/mockery (1.4.4): Extracting archive
+      - Installing filp/whoops (2.14.5): Extracting archive
+  - Installing nunomaduro/collision (v5.11.0): Extracting archive
+  - Installing phpdocumentor/reflection-common (2.2.0): Extracting archive
+  - Installing phpdocumentor/type-resolver (1.6.0): Extracting archive
+  - Installing phpdocumentor/reflection-docblock (5.3.0): Extracting archive
+      - Installing sebastian/version (3.0.2): Extracting archive
+  - Installing sebastian/type (2.3.4): Extracting archive
+  - Installing sebastian/resource-operations (3.0.3): Extracting archive
+  - Installing sebastian/recursion-context (4.0.4): Extracting archive
+  - Installing sebastian/object-reflector (2.0.4): Extracting archive
+  - Installing sebastian/object-enumerator (4.0.4): Extracting archive
+  - Installing sebastian/global-state (5.0.3): Extracting archive
+  - Installing sebastian/exporter (4.0.4): Extracting archive
+  - Installing sebastian/environment (5.1.3): Extracting archive
+  - Installing sebastian/diff (4.0.4): Extracting archive
+  - Installing sebastian/comparator (4.0.6): Extracting archive
+  - Installing sebastian/code-unit (1.0.8): Extracting archive
+  - Installing sebastian/cli-parser (1.0.1): Extracting archive
+  - Installing phpunit/php-timer (5.0.3): Extracting archive
+  - Installing phpunit/php-text-template (2.0.4): Extracting archive
+  - Installing phpunit/php-invoker (3.1.1): Extracting archive
+      - Installing phpunit/php-file-iterator (3.0.6): Extracting archive
+  - Installing theseer/tokenizer (1.2.1): Extracting archive
+  - Installing sebastian/lines-of-code (1.0.3): Extracting archive
+  - Installing sebastian/complexity (2.0.2): Extracting archive
+  - Installing sebastian/code-unit-reverse-lookup (2.0.3): Extracting archive
+  - Installing phpunit/php-code-coverage (9.2.10): Extracting archive
+  - Installing doctrine/instantiator (1.4.0): Extracting archive
+  - Installing phpspec/prophecy (v1.15.0): Extracting archive
+      - Installing phar-io/version (3.1.0): Extracting archive
+  - Installing phar-io/manifest (2.0.3): Extracting archive
+  - Installing myclabs/deep-copy (1.10.2): Extracting archive
+  - Installing phpunit/phpunit (9.5.11): Extracting archive
+       0/100 [>---------------------------]   0%
+  10/100 [==>-------------------------]  10%
+  20/100 [=====>----------------------]  20%
+  30/100 [========>-------------------]  30%
+  40/100 [===========>----------------]  40%
+  50/100 [==============>-------------]  50%
+  60/100 [================>-----------]  60%
+  70/100 [===================>--------]  70%
+  80/100 [======================>-----]  80%
+  90/100 [=========================>--]  90%
+ 100/100 [============================] 100%
+    81 package suggestions were added by new dependencies, use `composer suggest` to see details.
+Package swiftmailer/swiftmailer is abandoned, you should avoid using it. Use symfony/mailer instead.
+Generating optimized autoload files
+    > Illuminate\Foundation\ComposerScripts::postAutoloadDump
+> @php artisan package:discover --ansi
+    Discovered Package: facade/ignition
+Discovered Package: fruitcake/laravel-cors
+Discovered Package: laravel/sail
+Discovered Package: laravel/sanctum
+Discovered Package: laravel/tinker
+Discovered Package: nesbot/carbon
+Discovered Package: nunomaduro/collision
+Package manifest generated successfully.
+    77 packages you are using are looking for funding.
+Use the `composer fund` command to find out more!
+    > @php artisan vendor:publish --tag=laravel-assets --ansi --force
+    No publishable resources for tag [laravel-assets].
+Publishing complete.
+    > @php artisan key:generate --ansi
+    Application key set successfully.
+
+Application ready! Build something amazing.
+
+
+
+*. 컴포저 업데이트
+=> 필요한 패키지가 vendor 속에 파일이 생성(다운로드)된다. (composer.json , composer.lock 참고)
+C:\work\laravel_sample\sample>composer update
+Loading composer repositories with package information
+Updating dependencies
+Nothing to modify in lock file
+Installing dependencies from lock file (including require-dev)
+Nothing to install, update or remove
+Package swiftmailer/swiftmailer is abandoned, you should avoid using it. Use symfony/mailer instead.
+Generating optimized autoload files
+> Illuminate\Foundation\ComposerScripts::postAutoloadDump
+> @php artisan package:discover --ansi
+Discovered Package: facade/ignition
+Discovered Package: fruitcake/laravel-cors
+Discovered Package: laravel/sail
+Discovered Package: laravel/sanctum
+Discovered Package: laravel/tinker
+Discovered Package: nesbot/carbon
+Discovered Package: nunomaduro/collision
+Package manifest generated successfully.
+77 packages you are using are looking for funding.
+Use the `composer fund` command to find out more!
+> @php artisan vendor:publish --tag=laravel-assets --ansi --force
+No publishable resources for tag [laravel-assets].
+Publishing complete.
+
+
+
+
+*. hosts 파일 수정
+==> 로컬 개발을 위해서 도메인과 IP 설정. 관리자 권한으로 수정해야함!
+C:\Windows\System32\drivers\etc\hosts
+127.0.0.1     sample.laravel_sample.com
+
+
+*. 아파치(NginX) 설정
+=> 알아서 잘...설정. 
+==> 이 문서는 윈도우 XAMPP 3.3.0의 아파치 2.4 기준으로 virtual host 설정함 ( C:\xampp\apache\conf\extra\httpd-vhosts.conf ).
+==> 경로가 C:/work/laravel_sample/sample/public 처럼 public 이 붙는 것에 주의
+
+<VirtualHost *:80>
+    ServerName sample.laravel_sample.com
+    DocumentRoot "C:/work/laravel_sample/sample/public"
+        <Directory "C:/work/laravel_sample/sample/public">
+             Options FollowSymLinks
+             AllowOverride All
+             <IfVersion < 2.4>
+                Allow from all
+             </IfVersion>
+             <IfVersion >= 2.4>
+                Require all granted
+             </IfVersion>
+        </Directory>
+    ErrorLog logs/sample.laravel_sample.com-error_log
+    CustomLog logs/sample.laravel_sample.com-access_log common
+</VirtualHost>
+
+*. 파일 및 폴더 (오차가 있을 수 있음)
+=> 전체
+파일 : 7330 
+폴더 : 1232 
+size : 34.9 MB
+
+=> vendor 제외
+파일 : 89
+폴더 : 36 
+size : 431 KB
+
+*. GIT 관련
+vendor , node_modules 폴더는 기본으로 무시(ignore)된다.
+storage 폴더는 속에서 다시 .gitingore로 무시처리 한다.
+
+
+*. 접속 확인
+=> http://sample.laravel_sample.com/
+=> 라라벨 안내 페이지가 보여야함. (오른쪽 밑에 버전 표시 됨 Laravel v8.79.0 (PHP v7.4.27))
+
+
+
+*. 500번 에러가 난다면?
+2022-01-17 에서는 에러가 발생 안하지만, 낮은 라라벨 버전으로 발생한다면?
+=> APP_KEY 를 생성해줘야한다.
+Illuminate\Encryption\MissingAppKeyException
+No application encryption key has been specified.
+
+Your app key is missing
+Generate your application encryption key using php artisan key:generate.
+
+위와 같은 에러가 난다면
+
+C:\work\laravel_sample\sample>php artisan key:generate
+Application key set successfully.
+실행
+
+그러면 .env에서
+APP_KEY 에 내용이 추가됨.
+
+
