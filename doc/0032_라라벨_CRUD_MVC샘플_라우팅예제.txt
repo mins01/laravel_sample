@@ -1,0 +1,39 @@
+/******************************************
+* 00301_라라벨_CRUD_MVC샘플_라우팅예제
+******************************************/
+
+*. 문서
+https://laravel.com/docs/8.x/routing
+https://laravel.kr/docs/8.x/routing
+
+
+
+*. 라우팅 설정 예제
+=> 기본
+Route::get('abc', [App\Http\Controllers\Abc::class,'index'])->name('abc.index');
+
+=> 리소스 컨트롤러 (CRUD 를 기본 지원)
+Route::resource('abc2', App\Http\Controllers\Abc2::class)->parameters([
+    'abc2' => 'id'   //$id라는 변수로 store, show 에서 받아온다.
+]);  
+
+=> 미들웨어 사용시
+Route::middleware(['auth','auth.routepolicy','adminloging'])->group(
+    function(){
+        Route::resource('def', App\Http\Controllers\Def::class)->parameters([
+            'def' => 'def_id'
+        ]);
+    }
+);
+=> 뷰만 사용하고, 미들웨어 제외시
+Route::get('ghi', function () { return view('pages.promotion'); })->withoutMiddleware(
+    [
+    \App\Http\Middleware\EncryptCookies::class,
+    \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
+    \Illuminate\Session\Middleware\StartSession::class,
+    \Laravel\Jetstream\Http\Middleware\AuthenticateSession::class,
+    \Illuminate\View\Middleware\ShareErrorsFromSession::class,
+    \App\Http\Middleware\VerifyCsrfToken::class,
+    \Illuminate\Routing\Middleware\SubstituteBindings::class,
+    ]
+);
