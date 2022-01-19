@@ -136,5 +136,19 @@ class TestRowController extends Controller
         // return response("TEST PAGE");
         return "TEST PAGE";
     }
+
+    /**
+     * 테스트용으로 추가한 count 메소드 (JSON 예제)
+     * 
+     * @return \Illuminate\Http\Response
+     */
+    public function count()
+    {
+        // return response("TEST PAGE");
+        $json = [
+            'count'=>TestRow::count()
+        ];
+        return response()->json($json);
+    }
     
 }
