@@ -1,0 +1,15 @@
+/******************************************
+* 0032_라라벨_추가설정_페이지네이션
+******************************************/
+
+*. 부트스트랩용 페이지네이션
+=> sample\resources\views\components\pagination.blade.php 추가
+
+=> sample\app\Providers\AppServiceProvider.php 에
+Paginator::defaultView('components.pagination'); // 기본 페이지네이션 변경
+추가 
+
+이후 뷰에서
+{{ $testRows->withQueryString()->links() }}
+{{ $testRows->links() }}
+처럼 호출하면 추가한 pagination 으로 동작한다.

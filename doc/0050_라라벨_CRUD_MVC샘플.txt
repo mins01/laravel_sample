@@ -1,0 +1,110 @@
+/******************************************
+* 0050_라라벨_MVC샘플
+******************************************/
+
+*. 네이밍
+테이블명 : test_rows            (복수형. 라라벨 규칙. 꼭 따를 필요는 없다.)
+모델명 : TestRow                (대문자로 시작, 단수형)
+컨트롤러명 : TestRowController  (Controller 가 뒤에 붙는다. 라라벨 규칙. 꼭 따를 필요는 없다.)
+
+*. 마이그레이션 생성
+C:\work\laravel_sample\sample>php artisan make:migration create_test_rows
+Created Migration: 2022_01_19_014101_create_test_rows
+=> 
+sample\database\migrations\2022_01_19_014101_create_test_rows.php 파일 참고
+create가 붙어있어 기본 테이블 청사진이 포함되어있다. create가 없을 경우 빈 메소드만 생성됨!
+알맞게 수정 필요
+
+*. 마이그레이션 실행
+C:\work\laravel_sample\sample>php artisan migrate
+Migrating: 2022_01_19_014101_create_test_rows
+Migrated:  2022_01_19_014101_create_test_rows (11.61ms)
+
+*. 모델 생성
+C:\work\laravel_sample\sample>php artisan make:model TestRow
+Model created successfully.
+=>
+sample\app\Models\TestRow.php 파일 참고
+SoftDeletes 를 사용하기 위한 구문 추가.
+설정 도움을 위한 주석 추가.
+
+
+*. 컨트롤러 생성
+C:\work\laravel_sample\sample>php artisan make:controller TestRowController -m TestRow -r
+Controller created successfully.
+=> 옵션 설명
+make:controller TestRowController  : 컨트롤러 이름 (필수)
+-m TestRow : 기본으로 사용하는 모델 이름 (기본으로 use 및 파라메터에 추가)
+-r : 리소스 타입 지정 (CRUD 용 메소드가 기본 추가됨)
+=> 
+sample\app\Http\Controllers\TestRowController.php 파일 참고
+CRUD 용 메소드가 추가되어 생성됨.
+=> 
+CRUD 메소드 목록
+index : 목록 보기
+create : 생성 폼
+store : insert 액션 (create 와 짝을 이룸)
+show : 상세 보기(읽기)
+edit : 수정 폼
+update : update 액션(edit 와 짝을 이룸)
+destroy : delete 액션
+
+*. 컨트롤러에 page 메소드 추가 
+=> 리소스의 기본 메소드 이외의 동작(testRow/page)을 위한 것
+    /**
+     * 테스트용으로 추가한 test 메소드
+     * 
+     * @return \Illuminate\Http\Response
+     */
+    public function page()
+    {
+        // return response("TEST PAGE");
+        return "TEST PAGE";
+    }
+//EOF;
+
+*. 컨트롤러 수정
+=> CRUD 에 맞춰서 동작하도록 수정
+sample\app\Http\Controllers\TestRowController.php 파일 참고
+
+*. 뷰 만들기
+sample\resources\views\testRow
+sample\resources\views\testRow\form.blade.php   // create, edit 에서 사용되는 폼
+sample\resources\views\testRow\index.blade.php  // index 에서 사용되는 목록
+sample\resources\views\testRow\layout.blade.php // 레이아웃 제어용
+sample\resources\views\testRow\show.blade.php   // show 에서 사용되는 상세 보기 페이지
+
+
+*. 라우팅 추가
+=> sample\routes\web.php 파일 수정
+Route::get('testRow/page', [App\Http\Controllers\TestRowController::class,'page'])->name('testRow.page');
+Route::resource('testRow', App\Http\Controllers\TestRowController::class);  
+
+
+
+
+*. 라우팅 목록 확인
+C:\work\laravel_sample\sample> php artisan route:list
++--------+-----------+------------------------+-----------------+------------------------------------------------------------+------------------------------------------+
+| Domain | Method    | URI                    | Name            | Action                                                     | Middleware                               |
++--------+-----------+------------------------+-----------------+------------------------------------------------------------+------------------------------------------+
+|        | GET|HEAD  | /                      |                 | Closure                                                    | web                                      |
+|        | GET|HEAD  | api/user               |                 | Closure                                                    | api                                      |
+|        |           |                        |                 |                                                            | App\Http\Middleware\Authenticate:sanctum |
+|        | GET|HEAD  | sanctum/csrf-cookie    |                 | Laravel\Sanctum\Http\Controllers\CsrfCookieController@show | web                                      |
+|        | GET|HEAD  | testRow                | testRow.index   | App\Http\Controllers\TestRowController@index               | web                                      | <-- 추가됨(리소스)
+|        | POST      | testRow                | testRow.store   | App\Http\Controllers\TestRowController@store               | web                                      | <-- 추가됨(리소스)
+|        | GET|HEAD  | testRow/create         | testRow.create  | App\Http\Controllers\TestRowController@create              | web                                      | <-- 추가됨(리소스)
+|        | GET|HEAD  | testRow/page           | testRow.page    | App\Http\Controllers\TestRowController@page                | web                                      | <-- 추가됨(리소스)
+|        | GET|HEAD  | testRow/{testRow}      | testRow.show    | App\Http\Controllers\TestRowController@show                | web                                      | <-- 추가됨
+|        | PUT|PATCH | testRow/{testRow}      | testRow.update  | App\Http\Controllers\TestRowController@update              | web                                      | <-- 추가됨(리소스)
+|        | DELETE    | testRow/{testRow}      | testRow.destroy | App\Http\Controllers\TestRowController@destroy             | web                                      | <-- 추가됨(리소스)
+|        | GET|HEAD  | testRow/{testRow}/edit | testRow.edit    | App\Http\Controllers\TestRowController@edit                | web                                      | <-- 추가됨(리소스)
++--------+-----------+------------------------+-----------------+------------------------------------------------------------+------------------------------------------+
+
+
+*. 동작 확인
+http://sample.laravel_sample.com/testRow/page
+=> 
+"TEST PAGE"
+라고 출력

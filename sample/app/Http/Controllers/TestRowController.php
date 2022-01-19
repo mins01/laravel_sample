@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 
 class TestRowController extends Controller
 {
+    public $viewDir ='testRow';
+    public $pageLimit = 5;
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +16,15 @@ class TestRowController extends Controller
      */
     public function index()
     {
-        //
+        
+
+        $testRow=TestRow::select('id','name','comment')->orderBy('updated_at','desc');
+        $testRows = $testRow->paginate($this->pageLimit); //DB결과 객체형
+
+        return view($this->viewDir.'.index',[
+            'title'=>'index',
+            'testRows'=>$testRows,
+        ]);
     }
 
     /**
@@ -24,7 +34,12 @@ class TestRowController extends Controller
      */
     public function create()
     {
-        //
+        $testRow = new TestRow();
+        return view($this->viewDir.'.form',[
+            'title'=>'create',
+            'action'=>'create',
+            'testRow'=>$testRow,
+        ]);
     }
 
     /**
@@ -35,7 +50,18 @@ class TestRowController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $testRow = new testRow();
+        $testRow->name = $request->post('name',null);
+        $testRow->comment = $request->post('comment',null);
+        if(!$testRow->name || !$testRow->comment){
+            abort('400','잘못된 입력입니다.');
+        }
+        $testRow->save();
+        if(!$testRow->id){
+            abort('400','저장 오류');
+        }
+        // return redirect()->route('testRow.show', ['testRow' => $testRow->id]);
+        return redirect()->route('testRow.show', ['testRow' => $testRow]);
     }
 
     /**
@@ -46,7 +72,10 @@ class TestRowController extends Controller
      */
     public function show(TestRow $testRow)
     {
-        //
+        return view($this->viewDir.'.show',[
+            'title'=>'show',
+            'testRow'=>$testRow,
+        ]);
     }
 
     /**
@@ -57,7 +86,11 @@ class TestRowController extends Controller
      */
     public function edit(TestRow $testRow)
     {
-        //
+        return view($this->viewDir.'.form',[
+            'title'=>'create',
+            'action'=>'create',
+            'testRow'=>$testRow,
+        ]);
     }
 
     /**
@@ -69,7 +102,17 @@ class TestRowController extends Controller
      */
     public function update(Request $request, TestRow $testRow)
     {
-        //
+        $testRow->name = $request->post('name',null);
+        $testRow->comment = $request->post('comment',null);
+        if(!$testRow->name || !$testRow->comment){
+            abort('400','잘못된 입력입니다.');
+        }
+        $testRow->save();
+        if(!$testRow->id){
+            abort('400','저장 오류');
+        }
+        // return redirect()->route('testRow.show', ['testRow' => $testRow->id]);
+        return redirect()->route('testRow.show', ['testRow' => $testRow]);
     }
 
     /**
@@ -80,7 +123,8 @@ class TestRowController extends Controller
      */
     public function destroy(TestRow $testRow)
     {
-        //
+        $testRow->delete();
+        return redirect()->route('testRow.index');
     }
     /**
      * 테스트용으로 추가한 test 메소드
