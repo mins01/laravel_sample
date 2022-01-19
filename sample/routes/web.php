@@ -21,3 +21,7 @@ Route::get('/', function () {
 Route::get('testRow/page', [App\Http\Controllers\TestRowController::class,'page'])->name('testRow.page');
 Route::get('testRow/count', [App\Http\Controllers\TestRowController::class,'count'])->name('testRow.count');
 Route::resource('testRow', App\Http\Controllers\TestRowController::class);  
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

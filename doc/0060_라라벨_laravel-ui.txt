@@ -1,0 +1,134 @@
+/******************************************
+* 0060_라라벨_laravel-ui
+******************************************/
+
+*. 참조문서
+https://velog.io/@munbeom/Laravel
+
+a. composer require laravel/ui
+b. php artisan ui bootstrap --auth
+c. npm install
+d. npm run dev
+
+*. npm 설치.
+https://www.npmjs.com/
+https://www.npmjs.com/package/npm
+https://nodejs.org/en/download/
+
+C:\work\laravel_sample\sample>npm -v
+8.1.2
+C:\work\laravel_sample\sample>node -v
+v16.13.2
+
+
+*. laravel/ui 설치
+C:\work\laravel_sample\sample>composer require laravel/ui
+Using version ^3.4 for laravel/ui
+./composer.json has been updated
+Running composer update laravel/ui
+Loading composer repositories with package information
+Updating dependencies
+Lock file operations: 1 install, 0 updates, 0 removals
+  - Locking laravel/ui (v3.4.1)
+Writing lock file
+Installing dependencies from lock file (including require-dev)
+Package operations: 1 install, 0 updates, 0 removals
+  - Downloading laravel/ui (v3.4.1)
+  - Installing laravel/ui (v3.4.1): Extracting archive
+Package swiftmailer/swiftmailer is abandoned, you should avoid using it. Use symfony/mailer instead.
+Generating optimized autoload files
+> Illuminate\Foundation\ComposerScripts::postAutoloadDump
+> @php artisan package:discover --ansi
+Discovered Package: facade/ignition
+Discovered Package: fruitcake/laravel-cors
+Discovered Package: laravel/sail
+Discovered Package: laravel/sanctum
+Discovered Package: laravel/tinker
+Discovered Package: laravel/ui
+Discovered Package: nesbot/carbon
+Discovered Package: nunomaduro/collision
+Package manifest generated successfully.
+77 packages you are using are looking for funding.
+Use the `composer fund` command to find out more!
+> @php artisan vendor:publish --tag=laravel-assets --ansi --force
+No publishable resources for tag [laravel-assets].
+Publishing complete.
+
+
+C:\work\laravel_sample\sample>php artisan ui bootstrap --auth
+Bootstrap scaffolding installed successfully.
+Please run "npm install && npm run dev" to compile your fresh scaffolding.
+Authentication scaffolding generated successfully.
+
+
+C:\work\laravel_sample\sample>npm install && npm run dev
+npm WARN deprecated querystring@0.2.0: The querystring API is considered Legacy. new code should use the URLSearchParams API instead.
+
+added 769 packages, and audited 770 packages in 38s
+
+84 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+npm notice
+npm notice New minor version of npm available! 8.1.2 -> 8.3.1
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v8.3.1
+npm notice Run npm install -g npm@8.3.1 to update!
+npm notice
+
+> dev
+> npm run development
+
+
+> development
+> mix
+
+        Additional dependencies must be installed. This will only take a moment.
+
+        Running: npm install resolve-url-loader@^5.0.0 --save-dev --legacy-peer-deps
+
+        Finished. Please run Mix again.
+
+
+C:\work\laravel_sample\sample>npm run dev
+
+> dev
+> npm run development
+
+
+> development
+> mix
+
+
+● Mix █████████████████████████ emitting (95%)
+ emit
+
+
+
+
+● Mix █████████████████████████ done (99%) plugins
+ WebpackBar:done
+
+
+√ Mix
+  Compiled successfully in 4.59s
+
+   Laravel Mix v6.0.41
+
+
+✔ Compiled Successfully in 4541ms
+┌───────────────────────────────────────────────────────────────────────────────────────────────────────────┬──────────┐
+│                                                                                                      File │ Size     │
+├───────────────────────────────────────────────────────────────────────────────────────────────────────────┼──────────┤
+│                                                                                                /js/app.js │ 2.23 MiB │
+│                                                                                               css/app.css │ 202 KiB  │
+└───────────────────────────────────────────────────────────────────────────────────────────────────────────┴──────────┘
+webpack compiled successfully
+The toast encountered an error.
+Please make sure that the app id is set correctly.
+Command Line: C:\work\laravel_sample\sample\node_modules\node-notifier\vendor\snoreToast\snoretoast-x64.exe -appID "Laravel Mix" -pipeName \\.\pipe\notifierPipe-ca9b927f-8706-45b1-b318-9f5d1f49831c -p C:\work\laravel_sample\sample\node_modules\laravel-mix\icons\laravel.png -m "Build successful" -t "Laravel Mix"
+
+
+*. 동작 확인
+http://sample.laravel_sample.com/login
+http://sample.laravel_sample.com/register
