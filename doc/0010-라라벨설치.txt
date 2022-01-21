@@ -35,7 +35,7 @@ PHP v7.4.27
 /* =============================================== 
 * 콤포저로 라라벨 설치
 ================================================== */
-
+!주의. 이미 만들어진 라라벨 프로젝트를 git으로 clone했다면 "컴포저 업데이트"로 넘어가라.(라라벨 인스톨 할 필요가 없음)
 
 *. 라라벨 인스톨러 설치
 C:\work\laravel_sample>composer global require laravel/installer   
@@ -113,8 +113,8 @@ Available commands:
   list        List commands
   new         Create a new Laravel application
 
-  *. 라라벨 앱 기본 설치
-  !. 경로 주의 (이미 폴더가 있으면 안됨)
+*. 라라벨 앱 기본 설치 
+!. 경로 주의 (이미 폴더가 있으면 안됨)
 C:\work\laravel_sample>laravel new sample
 => sample 이란 서브 폴더가 생기고 그 안에 필요 파일이 생성된다.
 
@@ -490,7 +490,8 @@ Application ready! Build something amazing.
 
 *. 컴포저 업데이트
 => 필요한 패키지가 vendor 속에 파일이 생성(다운로드)된다. (composer.json , composer.lock 참고)
-C:\work\laravel_sample\sample>composer update
+C:\work\laravel_sample\sample>composer update     // 최신 버전으로 적용할 경우(이 경우 다른 서버들도 같이 처리해야한다.)
+C:\work\laravel_sample\sample>composer install    // 버전을 유지할 경우 (이미 배포되어 버전을 유지해야하는 경우.)
 Loading composer repositories with package information
 Updating dependencies
 Nothing to modify in lock file
