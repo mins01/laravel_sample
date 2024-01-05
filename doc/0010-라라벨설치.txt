@@ -37,6 +37,17 @@ PHP v7.4.27
 ================================================== */
 !주의. 이미 만들어진 라라벨 프로젝트를 git으로 clone했다면 "컴포저 업데이트"로 넘어가라.(라라벨 인스톨 할 필요가 없음)
 
+*. 라라벨 인스톨 명령어 가이드
+composer create-project laravel/laravel sample  // 인스톨러 사용 없이 바로 설치
+or
+composer global require laravel/installer  // 인스톨러를 사용할 경우
+laravel new sample
+
+*. 라라벨 버전 지정하기 설치하기
+1. PHP가 지원되는 버전이어야 한다. (또는 composer에 버전 환경 무시 옵션을 줘야함.
+2. composer create-project laravel/laravel sample {설치할 버전}
+2.1. composer create-project laravel/laravel sample "10.*" // 라라벨 10 최신 버전으로 설치함 (2024-01-05 기준 10.39.0 이 최신
+
 *. 라라벨 인스톨러 설치
 C:\work\laravel_sample>composer global require laravel/installer   
 Changed current directory to C:/Users/*****/AppData/Roaming/Composer
