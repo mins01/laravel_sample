@@ -95,8 +95,8 @@ C:\work\laravel_sample\sample> php artisan route:list
 |        | GET|HEAD  | testRow                | testRow.index   | App\Http\Controllers\TestRowController@index               | web                                      | <-- 추가됨(리소스)
 |        | POST      | testRow                | testRow.store   | App\Http\Controllers\TestRowController@store               | web                                      | <-- 추가됨(리소스)
 |        | GET|HEAD  | testRow/create         | testRow.create  | App\Http\Controllers\TestRowController@create              | web                                      | <-- 추가됨(리소스)
-|        | GET|HEAD  | testRow/page           | testRow.page    | App\Http\Controllers\TestRowController@page                | web                                      | <-- 추가됨(리소스)
-|        | GET|HEAD  | testRow/{testRow}      | testRow.show    | App\Http\Controllers\TestRowController@show                | web                                      | <-- 추가됨
+|        | GET|HEAD  | testRow/page           | testRow.page    | App\Http\Controllers\TestRowController@page                | web                                      | <-- 추가됨
+|        | GET|HEAD  | testRow/{testRow}      | testRow.show    | App\Http\Controllers\TestRowController@show                | web                                      | <-- 추가됨(리소스)
 |        | PUT|PATCH | testRow/{testRow}      | testRow.update  | App\Http\Controllers\TestRowController@update              | web                                      | <-- 추가됨(리소스)
 |        | DELETE    | testRow/{testRow}      | testRow.destroy | App\Http\Controllers\TestRowController@destroy             | web                                      | <-- 추가됨(리소스)
 |        | GET|HEAD  | testRow/{testRow}/edit | testRow.edit    | App\Http\Controllers\TestRowController@edit                | web                                      | <-- 추가됨(리소스)
