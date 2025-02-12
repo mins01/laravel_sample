@@ -1,0 +1,47 @@
+라라벨10에서 라라벨11로 버전업 하는 방법
+
+composer.json
+에서
+아래와 같이 정리하고 require 로 따로 다시 추가 설치함
+"require":{
+    "php": "^8.3",
+    "laravel/framework": "^11.0",
+    "laravel/sanctum": "^4.0",
+    "laravel/ui": "^4.6"
+},
+$ composer update
+$ composer require guzzlehttp/guzzle
+$ composer require laravel/tinker
+$ composer require google/analytics-data
+=>
+"require":{
+    "php": "^8.3",
+    "google/analytics-data": "^0.22.2",
+    "guzzlehttp/guzzle": "^7.9",
+    "laravel/framework": "^11.0",
+    "laravel/sanctum": "^4.0",
+    "laravel/tinker": "^2.10",
+    "laravel/ui": "^4.6"
+},
+
+
+
+쓰는지 모르겠지만 개발 환경용 라이브러리 설치
+
+$ composer require --dev fakerphp/faker
+$ composer require --dev laravel/pint
+$ composer require --dev laravel/sail
+$ composer require --dev mockery/mockery
+$ composer require --dev nunomaduro/collision
+$ composer require --dev phpunit/phpunit
+$ composer require --dev spatie/laravel-ignition
+=>
+"require-dev": {
+    "fakerphp/faker": "^1.9.1",
+    "laravel/pint": "^1.0",
+    "laravel/sail": "^1.18",
+    "mockery/mockery": "^1.4.4",
+    "nunomaduro/collision": "^7.0",
+    "phpunit/phpunit": "^10.1",
+    "spatie/laravel-ignition": "^2.0"
+},
